@@ -1,19 +1,25 @@
-# from urllib.request import urlopen as uReq
 import csv
 import requests
 from bs4 import BeautifulSoup as soup
 
 url_list = []
-my_url = 'https://gbhackers.com/category/ransome/'
+my_url = input("Enter Website Link:")
+#my_url = 'https://gbhackers.com/category/ransome/'
 page_url = requests.get(my_url)
 
 # html parsing
 page_soup = soup(page_url.content, "lxml")
 
+data1 = input("Enter 1st:")
+data2 = input("Enter 2nd:")
+data3 = input("Enter 3rd")
+
 filename = "Products.csv"
+print("3 types of content you scraping"card)
+
 f = csv.writer(open(filename, 'w'))
 
-f.writerow(["CONTENT_TITLE", "CONTENT_DESCRIPTION", "CONTENT_LINK"])
+f.writerow([data1, data2, data3])
 
 # Grab each container
 containers = page_soup.find_all('div', class_='td_module_10')
